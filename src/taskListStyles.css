@@ -45,16 +45,18 @@
   .input-style {
     width: 200px;
     padding: 10px;
+    margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;
-    margin: 10px;
   }
   
   .add-button-style {
     padding: 10px 15px;
     background-color: #ccc;
+
     color: #423241;
+
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -70,6 +72,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+
   }
   
   .round-button-style {

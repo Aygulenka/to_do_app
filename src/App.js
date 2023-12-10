@@ -20,7 +20,6 @@ const App = () => {
        <Route path="/tasklist" element={<NoNowTaskList />} />
       </Routes>
     </Router>
-  );
-};
+)}
 
 export default App;

@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/to_do_app/static/css/main.e235a934.css",
-    "main.js": "/to_do_app/static/js/main.35d62a41.js",
+    "main.js": "/to_do_app/static/js/main.ef7dd861.js",
     "static/media/back.jpg": "/to_do_app/static/media/back.f5e8ef7ef9cb319107d7.jpg",
     "static/media/modal-back.jpg": "/to_do_app/static/media/modal-back.bfa37ba3e4b7be8d43ce.jpg",
     "index.html": "/to_do_app/index.html",
     "main.e235a934.css.map": "/to_do_app/static/css/main.e235a934.css.map",
-    "main.35d62a41.js.map": "/to_do_app/static/js/main.35d62a41.js.map"
+    "main.ef7dd861.js.map": "/to_do_app/static/js/main.ef7dd861.js.map"
   },
   "entrypoints": [
     "static/css/main.e235a934.css",
-    "static/js/main.35d62a41.js"
+    "static/js/main.ef7dd861.js"
   ]
 }

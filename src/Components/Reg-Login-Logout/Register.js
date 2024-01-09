@@ -2,70 +2,37 @@ import React, {useEffect} from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import {useNavigate} from 'react-router-dom'
-import axios from "axios";
-import '../taskListStyles.css';
+import '../../taskListStyles.css';
+
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../React-Redux/Reg-Login-Logout/actions';
 
 const Register = () => {
+
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
+
+  // const apiUrl = process.env.REACT_APP_API_URL;
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.post(
-        "https://todo-redev.herokuapp.com/api/users/register",
-        {
-          username: values.username,
-          email: values.email,
-          password: values.password,
-          gender: values.gender,
-          age: parseInt(values.age, 10),
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      // Вызываем асинхронный action creator, который отправит запрос на сервер
+      await dispatch(registerUser(values));
   
-      if (response.status === 200) {
-        if (response.data && response.data.id) {
-          // Регистрация успешна
-          console.log("Registration successful:", response.data);
-
-                  // Сохраняем user_id в localStorage
-        localStorage.setItem("user_id", response.data.id);
-      
-          // Сохраняем данные в localStorage
-          window.localStorage.setItem("user_data", JSON.stringify(values));
-
-          console.log("Email:", values.email);
-          console.log("Password:", values.password);
-      
-          // Переходим на страницу LogIn
-          navigate("/login");
-      
-          // Ваши остальные действия с данными (например, отправка на сервер)
-        } else {
-          // Ошибка регистрации
-          console.error("Registration failed:", response.data);
-        }
-      } else {
-        // Обработка ошибок с кодом ответа, отличным от 200
-        console.error("Error during registration. Status code:", response.status);
-        // Выводим также содержимое ответа
-        console.error("Response data:", response.data);
-      }
-      
+      // После успешной регистрации переходим на страницу LogIn
+      navigate("/login");
+  
+      // Ваши остальные действия, если нужны
     } catch (error) {
-      // Ошибка запроса
+      // Обработка ошибок, если что-то пошло не так
       console.error("Error during registration:", error.message);
+    } finally {
+      // В любом случае, даже при ошибке, устанавливаем setSubmitting(false)
+      setSubmitting(false);
     }
-  
-    setSubmitting(false);
   };
   
-  
-  
-
   // Функция для проверки наличия данных в localStorage
   const isDataSaved = () => {
     return localStorage.getItem("user_data") !== null;
@@ -109,7 +76,7 @@ const Register = () => {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting, errors, touched }) => (
-          <Form nameClass="center-container">
+          <Form className="center-container">
             <div className="input-style">
               <Field
                 type="text"

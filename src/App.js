@@ -1,13 +1,13 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NoNowTaskList from './Tasks/NoNowTaskList';
+import TaskList from './Components/Tasks/TaskList';
 import './App.css';
 import './taskListStyles.css';
-import Register from './reg_login_logout/Register'
-import LogIn from './reg_login_logout/LogIn'
-import Home from './reg_login_logout/Home'
-import LogOut from "./reg_login_logout/LogOut"
+import Register from './Components/Reg-Login-Logout/Register'
+import LogIn from './Components/Reg-Login-Logout/LogIn'
+import Home from './Components/Home'
+import LogOut from "./Components/Reg-Login-Logout/LogOut"
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
         <Route path="/" element={<Home />}/>
        <Route path="/register" element={<Register />}/>
        <Route path="/login" element={<LogIn />} />
-       <Route path="/tasklist" element={<NoNowTaskList />} />
+       <Route path="/tasklist" element={<TaskList />} />
       </Routes>
     </Router>
 )}

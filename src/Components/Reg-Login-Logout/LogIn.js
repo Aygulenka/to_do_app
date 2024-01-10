@@ -1,10 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { AuthProvider } from '../AuthContext';
-import Modal from '../Modal';
+import { AuthProvider, apiUrl } from '../AuthContext';
+import Modal from './Pages/Modal';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, openModal, closeModal, setUserData } from '../React-Redux/Reg-Login-Logout/actions';
 
@@ -28,7 +31,7 @@ const LogIn = () => {
       await dispatch(loginUser(values));
 
       // Получаем актуальный userId после успешной аутентификации
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/users`);
+      const response = await axios.get(`${apiUrl}/users`);
       const allUsers = response.data;
   
       const desiredUser = allUsers.find(user => user.email.toLowerCase() === values.email.toLowerCase());

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {apiUrl} from '../../AuthContext';
 
 const registerSuccess = (userData) => ({
   type: 'REGISTER_SUCCESS',
@@ -36,7 +37,7 @@ export const registerUser = (userData) => {
   return async (dispatch) => {
     try {
       const response = await sendRequest(
-        `${process.env.REACT_APP_API_URL}/users/register`,
+        `${apiUrl}/users/register`,
         'POST',
         userData,
         { 'Content-Type': 'application/json' }
@@ -98,7 +99,7 @@ export const loginUser = (values) => {
 
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/auth/login`,
+        `${apiUrl}/auth/login`,
         {
           email: values.email,
           password: values.password,
@@ -143,9 +144,6 @@ export const loginUser = (values) => {
   };
 };
 
-// const [showLogoutModal, setShowLogoutModal] = useState(false);
-// const [loading, setLoading] = useState(false);
-// const [isMounted, setIsMounted] = useState(true);
 
 export const showLogoutModal = () => ({
   type: 'SHOW_LOGOUT_MODAL',
@@ -174,7 +172,7 @@ export const logoutUser = (userId) => {
       dispatch(logoutRequest());
 
       const token = localStorage.getItem('token');
-      await axios.delete(`https://todo-redev.herokuapp.com/api/users/${userId}`, {
+      await axios.delete(`${apiUrl}/users/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -1,13 +1,18 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import TaskList from './Components/Tasks/TaskList';
-import './App.css';
-import './taskListStyles.css';
 import Register from './Components/Reg-Login-Logout/Register'
 import LogIn from './Components/Reg-Login-Logout/LogIn'
 import Home from './Components/Home'
 import LogOut from "./Components/Reg-Login-Logout/LogOut"
+
+import './Styles/App.css'
+import './Styles/Header.css'
+import './Styles/Modal.css'
+import './Styles/styles.css'
+import './Styles/tasksStyles.css'
 
 const App = () => {
   return (

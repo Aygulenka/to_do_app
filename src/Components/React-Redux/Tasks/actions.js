@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {apiUrl} from '../../AuthContext';;
 
 export const setTasks = (tasks) => ({
   type: 'SET_TASKS',
@@ -28,7 +29,7 @@ export const setEditedTask = (task) => ({
 export const fetchTasks = (token) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/todos`, {
+      const response = await axios.get(`${apiUrl}/todos`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
@@ -51,7 +52,7 @@ export const handleAddTask = (logAction, token, newTask) => {
       if (newTask.trim() !== "") {
         try {
           const response = await axios.post(
-            `${process.env.REACT_APP_API_URL}/todos`,
+            `${apiUrl}/todos`,
             { title: newTask },
             {
               headers: {
@@ -81,7 +82,7 @@ export const handleDeleteTask = (logAction, token, id) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.delete(
-        `${process.env.REACT_APP_API_URL}/todos/${id}`,
+        `${apiUrl}/todos/${id}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -106,7 +107,7 @@ export const handleSaveEdit = (token, logAction, editIndex, editedTask) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.patch(
-        `${process.env.REACT_APP_API_URL}/todos/${editIndex}`,
+        `${apiUrl}/todos/${editIndex}`,
         { title: editedTask },
         {
           headers: {
@@ -137,7 +138,7 @@ export const handleToggleComplete = (logAction, token, id) => {
   return async (dispatch, getState) => {
     try {
       const response = await axios.patch(
-        `${process.env.REACT_APP_API_URL}/todos/${id}/isCompleted`,
+        `${apiUrl}/todos/${id}/isCompleted`,
         {},
         {
           headers: {

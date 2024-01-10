@@ -1,5 +1,4 @@
 import React from 'react';
-import './Modal.css'; // Создайте стили для модального окна в файле Modal.css
 
 const Modal = ({ children, onClick }) => {
   return (

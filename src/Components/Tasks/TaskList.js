@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
+
 import withLogger from '../../withLogger';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
-import '../../App.css';
-import '../../taskListStyles.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 import * as taskActions from '../React-Redux/Tasks/actions'

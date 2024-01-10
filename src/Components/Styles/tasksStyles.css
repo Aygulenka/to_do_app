@@ -30,9 +30,10 @@
   }
   
 .txttodo {
-    font-size: 2em;
+    font-size: 4em;
     color: #423241;
     text-shadow: 4px 4px 8px white;
+    margin-bottom: 20px;
   }
   
 

@@ -1,14 +1,17 @@
 import React, {useEffect} from "react";
+import {useNavigate} from 'react-router-dom'
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import {useNavigate} from 'react-router-dom'
+
 import axios from "axios";
+import { apiUrl } from "../AuthContext";
+
 import '../styles.css';
+
 
 const Register = () => {
   const navigate = useNavigate();
-
-  const apiUrl = process.env.REACT_APP_API_URL;
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {

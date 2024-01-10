@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { AuthProvider } from "../AuthContext";
-import Modal from './Modal'; // Добавляем импорт компонента Modal (если у вас его нет, создайте)
+import { AuthProvider, apiUrl } from "../AuthContext";
+
+import Modal from './pages/Modal'; // Добавляем импорт компонента Modal (если у вас его нет, создайте)
+
 import '../styles.css';
 
 const userId = localStorage.getItem("user_id");
@@ -19,7 +23,7 @@ const LogIn = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.post(
-        "https://todo-redev.herokuapp.com/api/auth/login",
+        `${apiUrl}/auth/login`,
         {
           email: values.email,
           password: values.password,

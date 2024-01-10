@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
+import axios from 'axios'; 
+import { apiUrl } from '../AuthContext';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt, faHome } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios'; 
-import './Header.css';
+import '../Header.css';
 
 
 const LogOut = () => {
@@ -36,7 +39,7 @@ const LogOut = () => {
                 console.log('Inside the if statement');
           
                 const token = localStorage.getItem('token');
-                const response = await axios.delete(`https://todo-redev.herokuapp.com/api/users/${userId}`, {
+                const response = await axios.delete(`${apiUrl}/users/${userId}`, {
                   headers: {
                     Authorization: `Bearer ${token}`,
                   },

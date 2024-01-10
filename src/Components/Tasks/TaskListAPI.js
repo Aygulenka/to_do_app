@@ -5,6 +5,7 @@ import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import '../../App.css';
 import './tasksStyles.css';
 import '../styles.css';
+import { apiUrl } from "../AuthContext";
 
 const TaskListAPI = ({ logAction }) => {
   const [newTask, setNewTask] = useState("");
@@ -28,7 +29,7 @@ const TaskListAPI = ({ logAction }) => {
 
   const fetchTasks = async () => {
     try {
-      const url = "https://todo-redev.herokuapp.com/api/todos";
+      const url = `${apiUrl}/todos`;
       const response = await fetch(url, {
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -50,7 +51,7 @@ const TaskListAPI = ({ logAction }) => {
   const handleAddTask = async () => {
     if (newTask.trim() !== "") {
       try {
-        const response = await fetch("https://todo-redev.herokuapp.com/api/todos", {
+        const response = await fetch(`${apiUrl}/todos`, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json',
@@ -75,7 +76,7 @@ const TaskListAPI = ({ logAction }) => {
 
   const handleDeleteTask = async (id) => {
     try {
-      const response = await fetch(`https://todo-redev.herokuapp.com/api/todos/${id}`, {
+      const response = await fetch(`${apiUrl}/todos/${id}`, {
         method: "DELETE",
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -106,7 +107,7 @@ const TaskListAPI = ({ logAction }) => {
   const handleSaveEdit = async () => {
     if (editedTask.trim() !== "") {
       try {
-        const response = await fetch(`https://todo-redev.herokuapp.com/api/todos/${editIndex}`, {
+        const response = await fetch(`${apiUrl}/todos/${editIndex}`, {
           method: "PATCH",
           headers: {
             'Content-Type': 'application/json',
@@ -137,7 +138,7 @@ const TaskListAPI = ({ logAction }) => {
 
   const handleToggleComplete = async (id) => {
     try {
-      const response = await fetch(`https://todo-redev.herokuapp.com/api/todos/${id}/isCompleted`, {
+      const response = await fetch(`${apiUrl}/todos/${id}/isCompleted`, {
         method: "PATCH",
         headers: {
           'Authorization': `Bearer ${token}`,

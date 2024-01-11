@@ -2,6 +2,8 @@ import withLogger from './withLogger';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { v4 as uuidv4 } from 'uuid';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -19,16 +21,11 @@ import {
 const TaskList = ({logAction}) => {
   const dispatch = useDispatch();
   const { newTask, tasks, editIndex, editedTask } = useSelector(state => state.tasks);
-
-  const generateRandomKey = () => {
-    const randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
-    const randomDigit = Math.floor(Math.random() * 10);
-    return `${randomLetter}${randomLetter}${randomDigit}`;
-  };
+ 
 
   const handleAddTask = () => {
     if (newTask.trim() !== '') {
-      const randomKey = generateRandomKey();
+      const randomKey = uuidv4();
       const newTaskObj = { text: newTask, id: randomKey, completed: false };
       dispatch(addTask(newTaskObj));
       dispatch(setNewTask(''));

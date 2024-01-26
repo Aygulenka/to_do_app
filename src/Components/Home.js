@@ -18,6 +18,7 @@ const Home = () => {
   return (
     <div className = "layout">
        <div className="waviy">
+        
        <span style={{'--i': 1}}>T</span>
 <span style={{'--i': 2}}>O</span>
 <span style={{'--i': 3}}>D</span>

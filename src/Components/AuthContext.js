@@ -9,6 +9,7 @@ export const useAuth = () => {
 export const apiUrl = process.env.REACT_APP_API_URL;
 
 export const AuthProvider = ({ children, token }) => {
+  console.log("apiUrl:", process.env.REACT_APP_API_URL);
   return (
     <AuthContext.Provider value={{ token, apiUrl }}>
       {children}

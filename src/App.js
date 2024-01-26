@@ -1,5 +1,6 @@
 // App.js
 import React from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import TaskList from './Components/Tasks/TaskListAPI';
@@ -16,6 +17,7 @@ import './Components/Styles/tasksStyles.css'
 
 const App = () => {
   return (
+
     <Router>
       <LogOut/>
       <Routes>
@@ -26,5 +28,6 @@ const App = () => {
       </Routes>
     </Router>
 )}
+
 
 export default App;

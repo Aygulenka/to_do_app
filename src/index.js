@@ -1,23 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
 
 
-import { AuthProvider } from './Components/AuthContext';
+// //import { AuthProvider, apiUrl } from './Components/AuthContext';
 
 // import { Provider } from 'react-redux';
 // import store from './Components/RTK/store';
 
 
+// import App from './App';
+
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+
+//     // <AuthProvider  apiUrl={apiUrl}>
+//     <Provider store={store}>
+//     <App />
+//     </Provider>
+//     // </AuthProvider>
+
+// )
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './Components/RTK/store';
 import App from './App';
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-
-    <AuthProvider>
-    {/* <Provider store={store}> */}
+ReactDOM.render(
+  <Provider store={store}>
     <App />
-    {/* </Provider> */}
-    </AuthProvider>
-
-)
+  </Provider>,
+  document.getElementById('root')
+);

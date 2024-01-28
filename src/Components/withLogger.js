@@ -1,6 +1,4 @@
-// withLogger.js
-import React, { useEffect } from 'react';
-
+import React, { useEffect } from "react";
 
 const withLogger = (WrappedComponent) => {
   const WithLogger = (props) => {
@@ -13,7 +11,6 @@ const withLogger = (WrappedComponent) => {
 
     useEffect(() => {
       console.log(`копонент  ${WrappedComponent.name} обновлен`);
-      
     });
 
     const logAction = (action, task) => {

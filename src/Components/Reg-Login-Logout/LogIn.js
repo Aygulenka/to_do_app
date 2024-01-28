@@ -74,6 +74,7 @@ const LogIn = () => {
     navigate("/register");
   };
 
+  const passwordMinLengthError = "Минимальная длина пароля - 8 символов";
   return (
     <>
       <AuthProvider token={token} userId={userId}>

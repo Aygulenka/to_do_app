@@ -11,7 +11,6 @@ import LogOut from "./Components/Reg-Login-Logout/LogOut"
 
 import './Components/Styles/App.css'
 import './Components/Styles/Header.css'
-import './Components/Styles/Modal.css'
 import './Components/Styles/styles.css'
 import './Components/Styles/tasksStyles.css'
 

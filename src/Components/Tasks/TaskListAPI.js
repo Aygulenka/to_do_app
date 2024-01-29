@@ -86,7 +86,7 @@ const TaskList = ({ logAction }) => {
       </div>
       <ul>
         {Array.isArray(tasks) && tasks.length > 0
-          ? tasks.map((task) => (
+          && tasks.map((task) => (
               <li key={task.id} className="task">
                 {editIndex === task.id ? (
                   <>
@@ -150,8 +150,7 @@ const TaskList = ({ logAction }) => {
                   </>
                 )}
               </li>
-            ))
-          : null}
+            ))}
       </ul>
     </div>
   );
